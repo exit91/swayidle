@@ -98,6 +98,14 @@ It will also lock your screen before your computer goes to sleep.
 To make sure swayidle waits for swaylock to lock the screen before it releases the
 inhibition lock, the *-w* options is used in swayidle, and *-f* in swaylock.
 
+As configuration file:
+
+```
+timeout 300 'swaylock -f -c 000000'
+timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+before-sleep 'swaylock -f -c 000000'
+```
+
 # AUTHORS
 
 Maintained by Drew DeVault <sir@cmpwn.com>, who is assisted by other open
